@@ -2081,7 +2081,7 @@ wasmtime_ssp_poll_oneoff(wasm_exec_env_t exec_env, struct fd_table *curfds,
                          size_t nsubscriptions,
                          size_t *nevents) NO_LOCK_ANALYSIS
 {
-#if defined(BH_PLATFORM_WINDOWS) || defined(BH_PLATFORM_ZEPHYR)
+#ifdef BH_PLATFORM_WINDOWS
     return __WASI_ENOSYS;
 #else
     // Sleeping.
